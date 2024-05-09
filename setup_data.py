@@ -1803,3 +1803,46 @@ seg_ovp = {
     "CamionesGeneralVía Chile": "Camion",
     "AutosFranquicia 1 millónGeneral": "Franquicia 1 millón",
 }
+
+
+tasa_rc_min = {
+    "Autos": 0.000738,
+    "Camion": 0.000738,
+    "Franquicia 500mil": 0.000580,
+    "Franquicia 1 millón": 0.000471,
+    "Via Chile": 0.000997,
+    "Representante": 0.000654,
+}
+
+
+tasa_rc_max = {
+    "Autos": 0.001415,
+    "Camion": 0.001415,
+    "Franquicia 500mil": 0.001179,
+    "Franquicia 1 millón": 0.001012,
+    "Via Chile": 0.002394,
+    "Representante": 0.001445,
+}
+
+
+tasa_ovp_min = {
+    "Autos": 0.001085,
+    "Camion": 0.001085,
+    "Franquicia 500mil": 0.001085,
+    "Franquicia 1 millón": 0.001085,
+    "Via Chile": 0.000164,
+    "Representante": 0.000796,
+}
+
+
+tasa_ovp_max = {
+    "Autos": 0.003458,
+    "Camion": 0.003458,
+    "Franquicia 500mil": 0.003458,
+    "Franquicia 1 millón": 0.003458,
+    "Via Chile": 0.004378,
+    "Representante": 0.003747,
+}
+
+
+recargo_ptf = 1.79007323
