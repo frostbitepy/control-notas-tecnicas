@@ -15,9 +15,12 @@ def add_cobertura_basica_column(df):
     df["Cobertura Básica / Casco"] = df["Auto Cober. Básica 1"] + df["Auto Cober. Básica 2"] + df["Auto Accesorios"]
     return df
 
+
 def round_to_million(n):
     if n > 150000000:
         return 150000000
+    elif n <= 10000000:
+        return 10000000
     else:
         return (n // 1000000) * 1000000
 
@@ -242,3 +245,44 @@ def process_resumen(df):
 
     df_grouped.columns = ['PRODUCTO', 'CANTIDAD', 'PRIMA TÉCNICA ART', 'MIN PRIMA PURA COT', 'MIN PRIMA TARIFA COT', 'MAX PRIMA PURA COT', 'Total Monto Diferencia Prima Pura', 'Count Prima Pura', 'Total Monto Diferencia Prima Tarifa', 'Count Prima Tarifa']
     return df_grouped
+
+
+def process_uploaded_file(uploaded_file):
+    if uploaded_file is not None:
+        df = pd.read_excel(uploaded_file)
+        
+        df = updated_name_column(df)
+        df = add_cobertura_basica_column(df)
+        df = add_capital_seg_column(df)
+        df = add_resp_civil_column(df)
+        df = add_ovp_column(df)
+        df = add_tipo_column(df)
+        df = add_franquicia_column(df)
+        df = add_importacion_column(df)
+        df = add_segmento_column(df)
+        df = add_segmento_casco_column(df)
+        df = add_segmento_rc_column(df)
+        df = add_segmento_ovp_column(df)
+        df = add_final_casco_column(df)
+        df = add_tasa_min_prima_pura_casco_column(df)
+        df = add_tasa_min_prima_pura_rc_column(df)
+        df = add_tasa_min_prima_pura_ovp_column(df)
+        df = add_prima_min_cobertura_basica_casco_column(df)
+        df = add_prima_min_rc_column(df)
+        df = add_prima_min_ovp_column(df)
+        df = add_dias_vigencia_column(df)
+        df = add_prima_tecnica_art_column(df)
+        df = add_min_prima_pura_cot_column(df)
+        df = add_min_prima_tarifa_cot_column(df)
+        df = add_tasa_max_prima_pura_casco_column(df)
+        df = add_tasa_max_prima_pura_rc_column(df)
+        df = add_tasa_max_prima_pura_ovp_column(df)
+        df = add_prima_max_cobertura_basica_casco_column(df)
+        df = add_prima_max_rc_column(df)
+        df = add_prima_max_ovp_column(df)
+        df = add_max_prima_pura_cot_column(df)
+        df = add_max_prima_tarifa_cot_column(df)
+        df = add_monto_diferencia_prima_pura_column(df)
+        df = add_monto_diferencia_prima_tarifa_column(df)
+
+    return df

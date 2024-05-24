@@ -1,5 +1,4 @@
 import pandas as pd
-import openpyxl
 from processing_helper import (
     updated_name_column,
     add_cobertura_basica_column,
@@ -88,10 +87,10 @@ df = add_monto_diferencia_prima_tarifa_column(df)
 
 print(df.head())
 
-df.to_excel('output_updated_products.xlsx', index=False)
+df.to_excel('listado_generado_plus.xlsx', index=False)
 
 
 df_new = process_resumen(df)
-df_new.to_excel('resumen_auto.xlsx', index=False)
+df_new.to_excel('resumen_5.xlsx', index=False)
 
 
