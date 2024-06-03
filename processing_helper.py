@@ -226,7 +226,7 @@ def count_product_names_x2(df):
     return df_grouped
 
 
-def process_resumen(df):
+def process_resumen_deprecated(df):
     # Convert columns to numeric type and round to 2 decimal places
     numeric_columns = ['Prima Tecnica Art.', 'MIN Prima Pura Cot', 'MIN Prima Tarifa Cot', 'MAX Prima Pura Cot', 'Monto Diferencia Prima Pura', 'Monto Diferencia Prima Tarifa']
     for col in numeric_columns:
@@ -241,6 +241,32 @@ def process_resumen(df):
         'MAX Prima Pura Cot': 'sum',
         'Monto Diferencia Prima Pura': ['sum', 'count'],
         'Monto Diferencia Prima Tarifa': ['sum', 'count']
+    }).reset_index()
+
+    df_grouped.columns = ['PRODUCTO', 'CANTIDAD', 'PRIMA TÉCNICA ART', 'MIN PRIMA PURA COT', 'MIN PRIMA TARIFA COT', 'MAX PRIMA PURA COT', 'Total Monto Diferencia Prima Pura', 'Count Prima Pura', 'Total Monto Diferencia Prima Tarifa', 'Count Prima Tarifa']
+    return df_grouped
+
+
+def process_resumen(df):
+    # Convert columns to numeric type and round to 2 decimal places
+    numeric_columns = ['Prima Tecnica Art.', 'MIN Prima Pura Cot', 'MIN Prima Tarifa Cot', 'MAX Prima Pura Cot', 'Monto Diferencia Prima Pura', 'Monto Diferencia Prima Tarifa']
+    for col in numeric_columns:
+        df[col] = pd.to_numeric(df[col], errors='coerce').round(2)
+
+    df['Mapped Nombre Producto'] = df['Nombre Producto'].map(products_data)
+
+    # Custom aggregation functions
+    sum_negatives = lambda x: x[x < 0].sum()
+    count_negatives = lambda x: (x < 0).sum()
+
+    df_grouped = df.groupby('Updated Nombre Producto').agg({
+        'Mapped Nombre Producto': 'count',
+        'Prima Tecnica Art.': 'sum',
+        'MIN Prima Pura Cot': 'sum',
+        'MIN Prima Tarifa Cot': 'sum',
+        'MAX Prima Pura Cot': 'sum',
+        'Monto Diferencia Prima Pura': [sum_negatives, count_negatives],
+        'Monto Diferencia Prima Tarifa': [sum_negatives, count_negatives]
     }).reset_index()
 
     df_grouped.columns = ['PRODUCTO', 'CANTIDAD', 'PRIMA TÉCNICA ART', 'MIN PRIMA PURA COT', 'MIN PRIMA TARIFA COT', 'MAX PRIMA PURA COT', 'Total Monto Diferencia Prima Pura', 'Count Prima Pura', 'Total Monto Diferencia Prima Tarifa', 'Count Prima Tarifa']

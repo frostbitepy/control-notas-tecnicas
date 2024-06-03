@@ -1,4 +1,7 @@
-tasas = {'Autos-General-General-min-11000000': {'min': 0.03257682072451781,
+tasas = {
+    'Autos-General-General-min-10000000': {'min': 0.03257682072451781,
+  'max': 0.05275218486942137},
+    'Autos-General-General-min-11000000': {'min': 0.03257682072451781,
   'max': 0.05275218486942137},
  'Autos-General-General-min-12000000': {'min': 0.03257682072451781,
   'max': 0.05275218486942137},
@@ -1709,6 +1712,7 @@ franquicia = {
     1488000.00: "Franquicia 1 millón",
     744000.00: "Franquicia 1 millón",
     726500.00: "Franquicia 1 millón",
+    1466600.00: "Franquicia 1 millón",
 }
 
 
@@ -1806,42 +1810,42 @@ seg_ovp = {
 
 
 tasa_rc_min = {
-    "Autos": 0.000738,
-    "Camion": 0.000738,
-    "Franquicia 500mil": 0.000580,
-    "Franquicia 1 millón": 0.000471,
-    "Via Chile": 0.000997,
-    "Representante": 0.000654,
+    "Autos": 0.000738076119137051,
+    "Camion": 0.000738076119137051,
+    "Franquicia 500mil": 0.000579790885773495,
+    "Franquicia 1 millón": 0.000471469771367886,
+    "Via Chile": 0.000997369974545131,
+    "Representante": 0.000653546062256723,
 }
 
 
 tasa_rc_max = {
-    "Autos": 0.001415,
-    "Camion": 0.001415,
-    "Franquicia 500mil": 0.001179,
-    "Franquicia 1 millón": 0.001012,
-    "Via Chile": 0.002394,
-    "Representante": 0.001445,
+    "Autos": 0.00141456075194219,
+    "Camion": 0.00141456075194219,
+    "Franquicia 500mil": 0.00117941272821915,
+    "Franquicia 1 millón": 0.00101221439847546,
+    "Via Chile": 0.00239409222006709,
+    "Representante": 0.00144532817787071,
 }
 
 
 tasa_ovp_min = {
-    "Autos": 0.001085,
-    "Camion": 0.001085,
-    "Franquicia 500mil": 0.001085,
-    "Franquicia 1 millón": 0.001085,
-    "Via Chile": 0.000164,
-    "Representante": 0.000796,
+    "Autos": 0.00108461999878384,
+    "Camion": 0.00108461999878384,
+    "Franquicia 500mil": 0.00108461999878384,
+    "Franquicia 1 millón": 0.00108461999878384,
+    "Via Chile": 0.000164344041897988,
+    "Representante": 0.000795678432392623,
 }
 
 
 tasa_ovp_max = {
-    "Autos": 0.003458,
-    "Camion": 0.003458,
-    "Franquicia 500mil": 0.003458,
-    "Franquicia 1 millón": 0.003458,
-    "Via Chile": 0.004378,
-    "Representante": 0.003747,
+    "Autos": 0.00345793159031092,
+    "Camion": 0.00345793159031092,
+    "Franquicia 500mil": 0.00345793159031092,
+    "Franquicia 1 millón": 0.00345793159031092,
+    "Via Chile": 0.00437820754719677,
+    "Representante": 0.00374687315670214,
 }
 
 
@@ -1897,4 +1901,4 @@ products_data = {
 }
 
 
-recargo_ptf = 1.79007323
+recargo_ptf = 1.79007323026851
